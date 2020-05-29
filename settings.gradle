@@ -1,0 +1,8 @@
+rootProject.name='CB Plus Test'
+
+include ':design'
+include ':interfaces'
+include ':data'
+include ':features:barcode'
+include ':features:input'
+include ':app'
