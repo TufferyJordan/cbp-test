@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/inventoryFragment">
+
+    <fragment
+        android:id="@+id/inventoryFragment"
+        android:name="com.cbp.test.inventory.view.InventoryFragment"
+        android:label="Inventory"
+        tools:layout="@layout/fragment_inventory">
+
+        <action
+            android:id="@+id/inventoryToBarcode"
+            app:destination="@+id/barcodeFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@+id/inventoryFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/barcodeFragment"
+        android:name="com.cbp.test.features.barcode.BarcodeFragment"
+        android:label="Barcode">
+        <action
+            android:id="@+id/barcodeToInput"
+            app:destination="@+id/inputFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit">
+            <argument
+                android:name="barcodeId"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/inputFragment"
+        android:name="com.cbp.test.features.input.InputFragment"
+        android:label="Input"
+        tools:layout="@layout/fragment_input" >
+
+        <action
+            android:id="@+id/inputToInventory"
+            app:destination="@+id/inventoryFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@+id/inventoryFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>

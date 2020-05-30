@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CB Plus Test</string>
+    <string name="camera_permission_rational_title">Camera permission</string>
+    <string name="camera_permission_rational_description">Camera permission is needed to scan a barcode</string>
+    <string name="camera_permission_rational_ok">OK</string>
+    <string name="args_barcode_id">barcodeId</string>
+</resources>
