@@ -19,6 +19,7 @@ class BarcodeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         zxingScannerView = ZXingScannerView(activity)
+        zxingScannerView.setAutoFocus(true)
         zxingScannerView.setResultHandler {
             get<BarcodeRouter>().navigate(it.text)
         }

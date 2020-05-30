@@ -3,6 +3,8 @@ package com.cbp.test.inventory.presenter
 import com.cbp.test.inventory.interactor.InventoryException
 import com.cbp.test.inventory.interactor.InventoryPresenter
 import com.cbp.test.inventory.interactor.ProductList
+import java.text.SimpleDateFormat
+import java.util.*
 
 class InventoryPresenterImpl(
     private val view: InventoryView
@@ -12,12 +14,16 @@ class InventoryPresenterImpl(
     }
 
     override fun presentData(data: ProductList) {
+        val calendar = Calendar.getInstance()
+        val dateFormatter = SimpleDateFormat("dd/MM/yyyy")
+
         view.displayData(
             ProductListViewModel(
                 data.list.map {
+                    calendar.timeInMillis = it.expirationDate
                     ProductViewModel(
                         it.title,
-                        it.expirationDate.toString()
+                        dateFormatter.format(calendar.time)
                     )
                 }
             )

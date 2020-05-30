@@ -4,6 +4,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.util.*
 
 class InventoryInteractorImpl(
     private val presenter: InventoryPresenter,
@@ -17,6 +18,8 @@ class InventoryInteractorImpl(
         ioScope.launch {
             repository.getAllProducts()?.let {
                 lifecycleScope.launch {
+                    val currentTimeInMillis = Calendar.getInstance().timeInMillis
+                    it.list.sortedBy { it.expirationDate < currentTimeInMillis }
                     presenter.presentData(
                         ProductList(
                             it.list.map {

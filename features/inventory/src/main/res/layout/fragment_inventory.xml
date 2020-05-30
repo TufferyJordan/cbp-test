@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         style="@style/TextAppearance.AppCompat.Headline"
         android:textColor="@color/red"
+        android:gravity="center"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
