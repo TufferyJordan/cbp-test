@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_item_barcode"
+        android:id="@+id/barcodeFragment"
         android:title="Barcode"
         android:icon="@drawable/ic_barcode"
         android:enabled="true"
